@@ -11,8 +11,7 @@ AMoveablePlatform::AMoveablePlatform() {
 void AMoveablePlatform::BeginPlay() {
 	Super::BeginPlay();
 
-	if (HasAuthority()) 
-	{
+	if (HasAuthority()) {
 		SetReplicates(true);
 		SetReplicateMovement(true);
 	}
@@ -20,6 +19,8 @@ void AMoveablePlatform::BeginPlay() {
 
 void AMoveablePlatform::Tick(float DeltaSeconds) {
 	Super::Tick(DeltaSeconds);
-	if (HasAuthority())
-		SetActorLocation(DeltaSeconds * Velocity + GetActorLocation());
+
+	if (HasAuthority()) {
+
+	}
 }

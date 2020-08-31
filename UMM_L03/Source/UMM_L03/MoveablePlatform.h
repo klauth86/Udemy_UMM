@@ -6,12 +6,10 @@
 #include "Engine/StaticMeshActor.h"
 #include "MoveablePlatform.generated.h"
 
-/**
- * 
- */
+class FPrimitiveSceneProxy;
+
 UCLASS()
-class UMM_L03_API AMoveablePlatform : public AStaticMeshActor
-{
+class UMM_L03_API AMoveablePlatform : public AStaticMeshActor {
 	GENERATED_BODY()
 	
 public:
@@ -22,6 +20,4 @@ public:
 
 	virtual void Tick(float DeltaSeconds) override;
 
-	UPROPERTY(EditAnywhere, Category = "AMoveablePlatform")
-		FVector Velocity;
 };
