@@ -13,11 +13,12 @@ class UMM_L03_API UMoveByPointsComponent : public UPrimitiveComponent {
 	GENERATED_BODY()
 
 public:	
+
 	UMoveByPointsComponent();
 
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 
-	void StartMovement(int32 currentTarget);
+	void StartMovement(int32 currentIndex);
 
 #if !UE_BUILD_SHIPPING
 	//~ Begin UPrimitiveComponent Interface.
@@ -31,9 +32,14 @@ protected:
 		bool ThereAndBackAgain;
 
 	UPROPERTY(EditAnywhere, Category = "AMoveablePlatform")
-		TMap<FVector, float> Points;
+		TArray<FVector> Points;
+
+	UPROPERTY(EditAnywhere, Category = "AMoveablePlatform")
+		TArray<float> Times;
 
 	float TimeLeft;
 
-	int32 CurrentTarget = INDEX_NONE;
+	int32 CurrentIndex = INDEX_NONE;
+
+	int32 DeltaIndex = 1;
 };

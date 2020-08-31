@@ -2,10 +2,16 @@
 
 
 #include "MoveablePlatform.h"
+#include "Components/MoveByPointsComponent.h"
+#include "Engine/CollisionProfile.h"
 
 AMoveablePlatform::AMoveablePlatform() {
 	PrimaryActorTick.bCanEverTick = true;
 	SetMobility(EComponentMobility::Movable);
+
+	MoveByPointsComponent = CreateDefaultSubobject<UMoveByPointsComponent>("MoveByPointsComponent");
+	MoveByPointsComponent->SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
+	MoveByPointsComponent->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
 void AMoveablePlatform::BeginPlay() {
@@ -14,13 +20,6 @@ void AMoveablePlatform::BeginPlay() {
 	if (HasAuthority()) {
 		SetReplicates(true);
 		SetReplicateMovement(true);
-	}
-}
-
-void AMoveablePlatform::Tick(float DeltaSeconds) {
-	Super::Tick(DeltaSeconds);
-
-	if (HasAuthority()) {
-
+		MoveByPointsComponent->StartMovement(0);
 	}
 }

@@ -7,17 +7,21 @@
 #include "MoveablePlatform.generated.h"
 
 class FPrimitiveSceneProxy;
+class UMoveByPointsComponent;
 
 UCLASS()
 class UMM_L03_API AMoveablePlatform : public AStaticMeshActor {
+
 	GENERATED_BODY()
 	
+protected:
+
+	UPROPERTY(EditAnywhere, Category = "Moveable Platform")
+	UMoveByPointsComponent* MoveByPointsComponent;
+
 public:
 
 	AMoveablePlatform();
 
 	virtual void BeginPlay() override;
-
-	virtual void Tick(float DeltaSeconds) override;
-
 };
