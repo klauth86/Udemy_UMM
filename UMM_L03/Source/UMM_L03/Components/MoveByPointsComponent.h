@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Components/PrimitiveComponent.h"
-#include "Components/MoveByPointsProxy.h"
 #include "MoveByPointsComponent.generated.h"
 
 
@@ -25,7 +24,7 @@ public:
 
 #if !UE_BUILD_SHIPPING
 	//~ Begin UPrimitiveComponent Interface.
-	virtual FPrimitiveSceneProxy* CreateSceneProxy() override { return nullptr; }
+	virtual FPrimitiveSceneProxy* CreateSceneProxy() override;
 	//~ End UPrimitiveComponent Interface.
 #endif
 

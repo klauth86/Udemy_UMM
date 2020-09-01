@@ -2,6 +2,7 @@
 
 
 #include "MoveByPointsComponent.h"
+#include "MoveByPointsProxy.h"
 
 // Sets default values for this component's properties
 UMoveByPointsComponent::UMoveByPointsComponent() {
@@ -71,3 +72,9 @@ void UMoveByPointsComponent::Draw(FPrimitiveDrawInterface* PDI, const FSceneView
 		PDI->DrawPoint(component->Points[i], LineColor, GrabHandleSize, DepthPriorityGroup);
 	}
 }
+
+#if !UE_BUILD_SHIPPING
+//~ Begin UPrimitiveComponent Interface.
+FPrimitiveSceneProxy* UMoveByPointsComponent::CreateSceneProxy() { return new FMoveByPointsProxy(this); }
+//~ End UPrimitiveComponent Interface.
+#endif
