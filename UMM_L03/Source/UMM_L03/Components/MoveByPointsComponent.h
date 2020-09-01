@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/PrimitiveComponent.h"
+#include "Components/MoveByPointsProxy.h"
 #include "MoveByPointsComponent.generated.h"
 
 
@@ -13,6 +14,8 @@ class UMM_L03_API UMoveByPointsComponent : public UPrimitiveComponent {
 	GENERATED_BODY()
 
 public:	
+
+	static void Draw(FPrimitiveDrawInterface* PDI, const FSceneView* View, UMoveByPointsComponent* component, const FMatrix& LocalToWorld, const FLinearColor& LineColor, uint8 DepthPriorityGroup);
 
 	UMoveByPointsComponent();
 

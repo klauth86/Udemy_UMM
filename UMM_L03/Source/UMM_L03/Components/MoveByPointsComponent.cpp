@@ -60,3 +60,14 @@ void UMoveByPointsComponent::StartMovement(int32 currentIndex) {
 		SetComponentTickEnabled(true);
 	}
 }
+
+void UMoveByPointsComponent::Draw(FPrimitiveDrawInterface* PDI, const FSceneView* View, UMoveByPointsComponent* component, const FMatrix& LocalToWorld, const FLinearColor& LineColor, uint8 DepthPriorityGroup) {
+	const int32 GrabHandleSize = 6;
+	FVector OldKeyPos(0);
+
+	const int32 NumPoints = component->Points.Num();
+
+	for (int32 i = 0; i < NumPoints; i++) {
+		PDI->DrawPoint(component->Points[i], LineColor, GrabHandleSize, DepthPriorityGroup);
+	}
+}
