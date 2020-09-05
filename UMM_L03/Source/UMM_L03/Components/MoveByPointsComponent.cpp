@@ -42,7 +42,7 @@ void UMoveByPointsComponent::TickComponent(float DeltaTime, enum ELevelTick Tick
 	else {
 		auto location = FMath::Lerp(Points[CurrentIndex], Points[CurrentIndex + DeltaIndex], 1 - TimeLeft / Times[CurrentIndex]);
 		GetOwner()->SetActorLocation(location);
-		UE_LOG(LogTemp, Warning, TEXT("%s"), *location.ToString());
+		//UE_LOG(LogTemp, Warning, TEXT("%s"), *location.ToString());
 	}
 }
 
