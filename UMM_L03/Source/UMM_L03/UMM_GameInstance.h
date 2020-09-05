@@ -26,6 +26,7 @@ public:
 
 protected:
 
+	UPROPERTY(EditAnywhere, Category = "UMM Game Instance")
 	TSubclassOf<UUserWidget> MainMenuUIClass;
 
 	UUserWidget* MainMenuUI;
